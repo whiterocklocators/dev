@@ -77,7 +77,7 @@
         };
 
 	    phoneCode.append(phoneInputBox);
-	    phoneCode.append(phoneLabel);
+	    // phoneCode.append(phoneLabel);
 
 	    mainPanel.append(countryCode);
 	    mainPanel.append(seperateCode);
