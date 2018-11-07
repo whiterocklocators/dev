@@ -72,9 +72,9 @@
      //    phoneLabel.style.fontWeight = '600';
      //    phoneLabel.style.webkitTextStroke = '3px white';
 
-        phoneLabel.onclick = function () {
-        	phoneInputBox.value = '';
-        };
+        // phoneLabel.onclick = function () {
+        // 	phoneInputBox.value = '';
+        // };
 
 	    phoneCode.append(phoneInputBox);
 	    // phoneCode.append(phoneLabel);
