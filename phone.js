@@ -121,10 +121,17 @@
 					.then(function(res) {
 						phoneDialog.innerHTML = '';
 
-						var thankMessageElement = document.createElement('h2');
-						thankMessageElement.style.margin = 'auto';
-						thankMessageElement.textContent = 'Thank you';
-						phoneDialog.append(thankMessageElement);
+						var thankMessageElement = document.createElement('div');
+        				thankMessageElement.style.margin = 'auto';
+        				thankMessageElement.style.fontSize = '30px';
+        				thankMessageElement.textContent = 'Thank you! We look forward to finding you a Unicorn Deal';
+
+        				var uniconImage = document.createElement("img");
+        				uniconImage.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7wNXlv_0XGIj_tHm7UNefaikdsWvHSe56-S-5jUMbwSyxhvOc";
+        				uniconImage.style.opacity = 0.4;
+
+        				phoneDialog.append(thankMessageElement);
+        				phoneDialog.append(uniconImage);
 					})
 			} else {
 				alert('phone number is not correct!')
