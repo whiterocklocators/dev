@@ -110,7 +110,12 @@
 
         	fetch(url, fetchOptions)
         		.then(function(res) {
-        			// usdValueElement.innerText = res;
+        			phoneDialog.innerHTML = '';
+
+        			var thankMessageElement = document.createElement('h2');
+        			thankMessageElement.style.margin = 'auto';
+        			thankMessageElement.textContent = 'Thank you';
+        			phoneDialog.append(thankMessageElement);
         		})
         };
 
