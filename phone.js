@@ -101,22 +101,35 @@
 		submitButton.style.transition = '0.3';
 
 		submitButton.onclick = function () {
-        	var fetchOptions = {
-        		method: 'get'
-        	};
 
-        	var url = "https://hooks.zapier.com/hooks/catch/1450847/e802qp/?phone="
-        			+ phoneInputBox.value;
+			var formats = "(999)999-9999|999-999-9999|9999999999";
+			var r = RegExp("^(" +
+			               formats
+			                 .replace(/([\(\)])/g, "\\$1")
+			                 .replace(/9/g,"\\d") +
+			               ")$");
 
-        	fetch(url, fetchOptions)
-        		.then(function(res) {
-        			phoneDialog.innerHTML = '';
+			if (r.test(phoneInputBox.value)) {
+				var fetchOptions = {
+					method: 'get'
+				};
 
-        			var thankMessageElement = document.createElement('h2');
-        			thankMessageElement.style.margin = 'auto';
-        			thankMessageElement.textContent = 'Thank you';
-        			phoneDialog.append(thankMessageElement);
-        		})
+				var url = "https://hooks.zapier.com/hooks/catch/1450847/e802qp/?phone="
+						+ phoneInputBox.value;
+
+				fetch(url, fetchOptions)
+					.then(function(res) {
+						phoneDialog.innerHTML = '';
+
+						var thankMessageElement = document.createElement('h2');
+						thankMessageElement.style.margin = 'auto';
+						thankMessageElement.textContent = 'Thank you';
+						phoneDialog.append(thankMessageElement);
+					})
+			} else {
+				alert('phone number is not correct!')
+			}
+
         };
 
         submitButton.onmouseenter = function() {
